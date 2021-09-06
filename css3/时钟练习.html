@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: cornsilk;
+        }
+        .main {
+            background-color: ghostwhite;
+            width: 300px;
+            height: 300px;
+            margin: 160px auto;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: relative;
+            box-shadow: 6px 6px 12px gray;
+        }
+
+        li {
+            width: 3px;
+            height: 6px;
+            background-color: black;
+            list-style: none;
+            position: absolute;
+            top: 0px;
+            left: 150px;
+            transform: rotate(6deg);
+            transform-origin: 1.5px 150px;
+        }
+
+        .point {
+            position: absolute;
+            left: 150px;
+            bottom: 150px;
+            /* transition: all 1s linear; */
+        }
+
+        #second {
+            width: 4px;
+            height: 90px;
+            background-color: steelblue;
+            transform-origin: 2px 90px;
+            border-radius: 2px;
+        }
+
+        #minute {
+            width: 6px;
+            height: 60px;
+            background-color: yellowgreen;
+            left: 149px;
+            transform-origin: 3px 60px;
+            border-radius: 3px;
+        }
+
+        #hour {
+            width: 8px;
+            height: 40px;
+            background-color: coral;
+            left: 148px;
+            transform-origin: 4px 40px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="point" id="second"></div>
+        <div class="point" id="minute"></div>
+        <div class="point" id="hour"></div>
+        <ul id="kd">
+        </ul>
+    </div>
+    <script>
+        var okd = document.getElementById("kd");
+        var osec = document.getElementById("second");
+        var omin = document.getElementById("minute");
+        var ohou = document.getElementById("hour");
+        var str = "";
+        for (var i = 1; i <= 60; i++) {
+            str = str + "<li></li>"
+        }
+        okd.innerHTML = str;
+        var oli = document.getElementsByTagName("li");
+        for (var i = 0; i < 60; i++) {
+            oli[i].style.transform = "rotate(" + (i * 6) + "deg)";
+            // oli[0].setAttribute("style",transform);
+        }
+        for (var i = 0; i < 60; i += 5) {
+            oli[i].style.height = 12 + "px";
+        }
+        setInterval(function () {
+            var d = new Date;
+            var s = 0;
+            s+=(d.getSeconds() * 6) ;
+            osec.style.transform = "rotate(" + s+ "deg)";
+            omin.style.transform = "rotate(" + (d.getSeconds() * 0.1+d.getMinutes()*6) + "deg)";
+            ohou.style.transform = "rotate(" + (d.getSeconds()*0.008+d.getMinutes()*0.5+(d.getHours()-12)*30) + "deg)";
+
+        }, 1000)
+    </script>
+</body>
+
+</html>

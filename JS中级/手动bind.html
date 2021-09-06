@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a:"aaa",
+        }
+        var fun = function(text){
+            var a ="bbb";
+            console.log(this.a+"+"+text);
+        }
+        Function.prototype.bind2 = function(){
+            var _this = arguments[0];//利用arguments[0]存入bind2的第一个参数，即fun函数中this的新指向
+            var options = Array.prototype.splice.call(arguments,1);
+            //如果直接调用splice,会报错"splice is not a function"
+            var k = this;//这里的this指向调用bind2的fun函数
+            return function(){
+                k.call(_this,options);//因为不能直接执行，所以返回值为函数
+            }
+        }
+        fun.bind2(obj,"ccc")();//执行改变this指向后的fun函数
+    </script>
+</body>
+</html>

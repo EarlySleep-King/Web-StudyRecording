@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习2</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: antiquewhite;
+        }
+        .main{
+            width: 670px;
+            height: 70px;
+            background-color: rgb(233,232,226);
+            box-shadow: 4px 3px 5px gray;
+            position: relative;
+            margin: 250px auto;
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 6px;
+        }
+        .option{
+            position: absolute;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+            line-height: 60px;
+            z-index: 10;
+        }
+        .a1{
+            width: 120px;
+            height: 60px;
+            left: 5px;
+        }
+        .a2{
+            width: 120px;
+            height: 60px;
+            left: 125px;
+        }
+        .a3{
+            width: 150px;
+            height: 60px;
+            left: 245px;
+        }
+        .a4{
+            width: 120px;
+            height: 60px;
+            left: 395px;
+        }
+        .a5{
+            width: 150px;
+            height: 60px;
+            left: 515px;
+        }
+        .move{
+            margin: 0px;
+            width: 120px;
+            height: 60px;
+            position: absolute;
+            left: 5px;
+            text-align: center;
+            line-height: 60px;
+            z-index: 9;
+            background-color: rgb(79, 156, 254);
+            border-radius: 6px;
+            transition: all 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="option a1">文件</div>
+        <div class="option a2">编辑</div>
+        <div class="option a3">历史记录</div>
+        <div class="option a4">窗口</div>
+        <div class="option a5">个人资料</div>
+        <div class="move"></div>
+    </div>
+
+    <script>
+        var a = document.getElementsByTagName("div");
+        for(i=1;i<=5;i++){
+            a[i].onclick = function(){
+                // a[6].setAttribute("style",window.getComputedStyle(this, "").left);不好使
+                a[6].style.left=window.getComputedStyle(this, "").left;
+                a[6].style.width=window.getComputedStyle(this, "").width;
+                console.log(window.getComputedStyle(this, "").left);
+                console.log(this.getAttribute("style"));
+            }
+        }
+    </script>
+</body>
+</html>

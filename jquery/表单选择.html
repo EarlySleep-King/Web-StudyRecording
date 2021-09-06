@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <input type="checkbox" id="in1">篮球
+    <input type="checkbox" id="in2">排球
+    <input type="checkbox" id="in3">羽毛球
+    <input type="checkbox" id="in4">足球
+    <input type="checkbox" id="in5">乒乓球
+    <button id="b1">全选</button>
+    <button id="b2">全不选</button>
+    <button id="b3">反选</button>
+    <script>
+        $("#b1").click(function(){
+            $(":input").prop("checked",true);
+        })
+        $("#b2").click(function(){
+            $(":input").prop("checked",false);
+        })
+        $("#b3").click(function(){
+            for(var i=0;i < $("input").length;i++){
+                if($($("input")[i]).prop("checked")){
+                    $($("input")[i]).prop("checked",false);
+                }
+                else
+                $($("input")[i]).prop("checked",true);
+            }
+            // console.log($($("input")[0]).prop("checked"));
+            // $("input:not(input:checked)").prop("checked",true);
+        })
+    </script>
+</body>
+</html>

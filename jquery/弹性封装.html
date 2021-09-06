@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <style>
+        .main{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .log-in{
+            width: 450px;
+            height: 350px;
+            background-color: papayawhip;
+            margin: 100px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .dtop{
+            height: 40px;
+            background-color: gray;
+            padding-left: 20px;
+            line-height: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .dright{
+            height: 25px;
+            width: 25px;
+            border-radius: 7px;
+            line-height: 25px;
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            transform: translateY(-50%);
+        }
+        .dright:hover{
+            color: white;
+            background-color: dodgerblue;
+            cursor: pointer;
+        }
+        .no{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">登录</button>
+    <script>
+        $.fn.extend({
+            fello:function(){
+                $("body").prepend("<div class='main no'><div class='log-in'><div class='dtop'>登录<div class='dright'>X</div></div>登录</div></div>")
+                console.log($("div"));
+                $("#btn").on("click",function(){
+                    $(".main").removeClass("no");
+                })
+                $(".dright").on("click",function(){
+                    $(".main").addClass("no");
+                })
+            }
+        })
+        $("body").fello();
+    </script>
+</body>
+</html>

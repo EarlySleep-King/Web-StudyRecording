@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: black;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            /* 为子元素设置3D效果 */
+            top: 200px;
+            left: 600px;
+            background-color: rgba(255, 255, 255, 0);
+            animation-name: foo;
+            /* 将旋转动画绑定在此div上 */
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            /* 动画循环执行 */
+            animation-timing-function: linear;
+            /* 动画匀速执行 */
+        }
+        body {
+            perspective: 800px;
+            position: relative;
+            /* 为整个页面设置观察视角 */
+        }
+        .square {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            line-height: 200px;
+            font-weight: 600;
+            font-size: 35px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+        #a1 {
+            transform: translateZ(100px);
+
+        }
+        #a2 {
+            transform:  rotateY(180deg) translateZ(100px);
+            /* 为确保正面朝外，此面需要旋转180度 */
+        }
+        #a3 {
+            transform: rotateY(-90deg);
+            left: -100px;
+        }
+        #a4 {
+            transform: rotateY(90deg);
+            left: 100px;
+        }
+        #a5 {
+            transform: rotateX(90deg);
+            top: -100px;
+        }
+        #a6 {
+            transform: rotateX(-90deg);
+            top: 100px;
+        }
+        @keyframes foo {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+            /* 从0度旋转到360度 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="square" id="a1">1</div>
+        <div class="square" id="a2">2</div>
+        <div class="square" id="a3">3</div>
+        <div class="square" id="a4">4</div>
+        <div class="square" id="a5">5</div>
+        <div class="square" id="a6">6</div>
+    </div>
+</body>
+
+</html>

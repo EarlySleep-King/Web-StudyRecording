@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var list = [];
+        var p_dl = {
+            into: function (num, priority) {
+                var flag = 0;
+                var Priority = {
+                    p_num: num,
+                    p_priority: priority
+                }
+                // console.log(""+Priority.p_num+","+Priority.p_priority);
+                if (list.length == 0) {
+                    list.push(Priority);
+                }
+                else {
+                    for (var i = 0; i < list.length; i++) {
+                        if (Priority.p_priority < list[i].p_priority) {
+                            list.splice(i, 0, Priority);
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    if (flag == 0) {
+                        list.push(Priority);
+                    }
+                }
+            },
+            show:function(){
+                var str="";
+                for(var i=0;i<list.length;i++){
+                    str += (list[i].p_num+","+list[i].p_priority+"  ");
+                }
+                console.log(str);
+            }
+        }
+        p_dl.into("5asd", 4);
+        p_dl.into("56zxc", 2);
+        p_dl.into(55, 2);
+        p_dl.into(580, 2);
+        p_dl.into(555, 1);
+        p_dl.into(23, 9);
+        p_dl.show();
+    </script>
+</body>
+
+</html>

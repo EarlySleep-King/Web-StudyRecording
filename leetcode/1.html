@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var nums=[0,4,3,0];
+        var target=0;
+        var k,flag=0,num2=[];
+        for(var i=0;i<nums.length-1;i++){
+                k=target-nums[i];
+                for(var m=i+1;m<nums.length;m++){
+                    if(nums[m]==k){
+                        flag=1;
+                        break;
+                    }
+                }
+            if(flag==1){
+                num2[0]=i;
+                num2[1]=m;
+                console.log(num2);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

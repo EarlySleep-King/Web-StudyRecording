@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        /* 1.bfc(overflow: hidden) 2.flex-grow 3.margin-left 4.width: calc(100% - 200px)*/
+        
+        .c1{
+            height: 200px;
+            /* width: 100%; */
+            background-color: blueviolet;
+            /* overflow: hidden; */
+            margin-left: 200px;
+        }
+        .c2{
+            height: 200px;
+            width: 200px;
+            float: left;
+            background-color: cadetblue;
+        }
+
+        /* .c1{
+            height: 200px;
+            width: 100%;
+            background-color: blueviolet;
+        }
+        .c2{
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            float: left;
+            background-color: cadetblue;
+        } */
+
+        /* .c2{
+            height: 200px;
+            width: calc(100% - 200px);
+            float: left;
+            background-color: chocolate;
+        }
+        .c1{
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: cadetblue;
+        } */
+
+
+    </style>
+</head>
+<body>
+    <div class="c2"></div>
+    <div class="c1"></div>
+    <!-- <div class="c3"></div> -->
+</body>
+</html>

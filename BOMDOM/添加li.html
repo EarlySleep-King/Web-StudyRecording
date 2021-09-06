@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>0</li>
+    </ul>
+    <button class="add">添加</button>
+    <script>
+        var oul = document.querySelector("ul");
+        var obut = document.querySelector("button");
+        var i=1;
+        obut.onclick = function(){
+            var adde = document.createElement("li");
+            oul.append(adde);
+            adde.innerText = i;
+            i++;
+        }
+    </script>
+</body>
+</html>

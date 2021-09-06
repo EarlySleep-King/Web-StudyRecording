@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lx2</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .d1{
+            width: 160px;
+            height: 240px;
+            background-color: antiquewhite;
+            border-radius: 8px;
+            box-shadow: 5px 5px 12px  gray;
+            border: 1px solid gray;
+            z-index: 1;
+            display: none;
+            position: absolute;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .back{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        li{
+            margin: 0 auto;
+            width: 150px;
+            height: 40px;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 6px;
+            /* border-bottom: 1px solid gray; */
+            line-height: 40px;
+            font-weight: 500;
+            /* transition: all 0.2s; */
+        }
+        li:hover{
+            background-color: rgb(79, 156, 254);
+            color: white;
+            cursor: pointer;
+        }
+        span{
+            height: 16px;
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <ul>
+            <li><span>选项1</span></li>
+            <li><span>选项2</span></li>
+            <li><span>选项3</span></li>
+            <li><span>选项4</span></li>
+            <li><span>选项5</span></li>
+            <li class="last"><span>选项6</span></li>
+        </ul>
+    </div>
+    <div class="back"></div>
+    <script>
+
+        var a=document.documentElement;
+        var b=document.getElementsByTagName("div");
+        var e;
+        a.oncontextmenu=function(e){
+            event.preventDefault();
+            b[0].style.top=e.clientY+"px";
+            b[0].style.left=e.clientX+"px";
+            b[0].style.display="block";
+            // b[0].setAttribute("style","display:block");
+            b[1].style.display="block";
+            console.log(e.clientX);
+            console.log(e.clientY);
+        }
+        b[1].onclick=function(){
+            b[0].style.display="none";
+            b[1].style.display="none";
+        }
+    </script>
+</body>
+</html>

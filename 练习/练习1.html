@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习1</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: antiquewhite;
+        }
+        .main{
+            width: 670px;
+            height: 70px;
+            background-color: rgb(233,232,226);
+            box-shadow: 4px 3px 5px gray;
+            position: relative;
+            margin: 250px auto;
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 6px;
+        }
+        .option{
+            width: 120px;
+            height: 60px;
+            position: relative;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+            line-height: 60px;
+            z-index: 10;
+        }
+        .option:nth-child(3){
+            width: 150px;
+            height: 60px;
+            position: relative;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+            line-height: 60px;
+            z-index: 10;
+        }
+        .option:nth-child(5){
+            width: 150px;
+            height: 60px;
+            position: relative;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+            line-height: 60px;
+            z-index: 10;
+        }
+        .move{
+            margin: 0px;
+            width: 120px;
+            height: 60px;
+            position: absolute;
+            left: 5px;
+            text-align: center;
+            line-height: 60px;
+            z-index: 9;
+            background-color: rgb(79, 156, 254);
+            border-radius: 6px;
+            transition: all 0.4s;
+        }
+        .option:nth-child(1):hover~.move{
+            left: 5px;
+        }
+        .option:nth-child(2):hover~.move{
+            left: 125px;
+        }
+        .option:nth-child(3):hover~.move{
+            left: 245px;
+            width: 150px;
+        }
+        .option:nth-child(4):hover~.move{
+            left: 395px;
+        }
+        .option:nth-child(5):hover~.move{
+            left: 515px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="option">文件</div>
+        <div class="option">编辑</div>
+        <div class="option">历史记录</div>
+        <div class="option">窗口</div>
+        <div class="option">个人资料</div>
+        <div class="move"></div>
+    </div>
+</body>
+
+</html>

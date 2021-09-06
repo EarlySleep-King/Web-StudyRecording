@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 735px;
+            height: 255px;
+            margin: 300px auto;
+            position: relative;
+            /* background-color: antiquewhite; */
+        }
+        img{
+            width: 735px;
+            height: 255px;
+            z-index: 9;
+            display: none;
+        }
+        .img1{
+            width: 735px;
+            height: 255px;
+            z-index: 9;
+            display: block;
+        }
+        li{
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: aquamarine;
+            position: absolute;
+            line-height: 30px;
+            list-style: none;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 2px 2px 5px  gray;
+        }
+        .button1{
+            left: 470px;
+            bottom: 5px;
+            background-color: #f90;
+        }
+        .button2{
+            left: 510px;
+            bottom: 5px;
+        }
+        .button3{
+            left: 550px;
+            bottom: 5px;
+        }
+        .button4{
+            left: 590px;
+            bottom: 5px;
+        }
+        .button5{
+            left: 630px;
+            bottom: 5px;
+        }
+        .l-button{
+            height: 50px;
+            width: 30px;
+            position: absolute;
+            left: 0px;
+            top: 102.5px;
+            background-color: aquamarine;      
+        }
+        .r-button{
+            height: 50px;
+            width: 30px;
+            position: absolute;
+            right: 0px;
+            top: 102.5px;
+            background-color: aquamarine;      
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+    <div class="main">
+        <img class="img1" src="./img/01.jpg">
+        <img class="img2" src="./img/02.jpg">
+        <img class="img3" src="./img/03.jpg">
+        <img class="img4" src="./img/04.jpg">
+        <img class="img5" src="./img/05.jpg">
+        <ul>
+            <li class="button1">1</li>
+            <li class="button2">2</li>
+            <li class="button3">3</li>
+            <li class="button4">4</li>
+            <li class="button5">5</li>
+        </ul>
+        <div class="l-button">&lt;</div>
+        <div class="r-button">&gt;</div>
+    </div>
+    </div>
+
+    <script>
+        var oli = document.getElementsByTagName("li");
+        var oimg = document.getElementsByTagName("img");
+        var back = document.getElementsByClassName("background")[0];
+        var odiv = document.getElementsByTagName("div");
+        var k=1;
+        var flag=0;
+        //先执行轮播图
+        timer=setInterval(function(){
+            for(var j=0;j<oimg.length;j++){
+                    oimg[j].style.display="none";
+                    oli[j].style.backgroundColor = "aquamarine";
+                }
+                flag++;
+            if(flag>=5){
+                flag=0;
+            }
+            oimg[flag].style.display = "block";
+            oli[flag].style.backgroundColor = "#f90";
+            console.log(123);
+        },1500);
+        //鼠标指向五个标签
+        for(var i=0;i<oli.length;i++){
+            oli[i].n=i;
+            oli[i].onmouseenter = function(){
+                for(var j=0;j<oimg.length;j++){
+                    oimg[j].style.display="none";
+                    oli[j].style.backgroundColor = "aquamarine";
+                }
+                oimg[this.n].style.display="block";
+                this.style.backgroundColor = "#f90";
+                flag=this.n;
+                clearInterval(timer);
+            }
+        }
+        //指向图片暂停
+            odiv[1].onmouseenter = function(){
+                clearInterval(timer);
+            }
+        //向左按钮
+        odiv[2].onclick = function(){
+            for(var j=0;j<oimg.length;j++){
+                    oimg[j].style.display="none";
+                    oli[j].style.backgroundColor = "aquamarine";
+                }
+            if(flag==0){
+                flag=5;
+            }
+            flag--;
+            oimg[flag].style.display="block";
+            oli[flag].style.backgroundColor = "#f90";
+            // oimg[flag].setAttribute("style","transition: all 0.4s")
+            // oimg[flag].style.transition = "all 0.4s";
+        }
+
+        odiv[3].onclick = function(){
+            for(var j=0;j<oimg.length;j++){
+                    oimg[j].style.display="none";
+                    oli[j].style.backgroundColor = "aquamarine";
+                }
+            if(flag>=4){
+                flag=-1;
+            }
+            flag++;
+            oimg[flag].style.display="block";
+            oli[flag].style.backgroundColor = "#f90";
+        }
+
+        odiv[1].onmouseleave= function(){
+            timer=setInterval(function(){
+            for(var j=0;j<oimg.length;j++){
+                    oimg[j].style.display="none";
+                    oli[j].style.backgroundColor = "aquamarine";
+                }
+                flag++;
+                if(flag>=5){
+                flag=0;
+            }
+            oimg[flag].style.display = "block";
+            oli[flag].style.backgroundColor = "#f90";
+            console.log(456);
+        },1500);
+        }
+    </script>
+</body>
+</html>

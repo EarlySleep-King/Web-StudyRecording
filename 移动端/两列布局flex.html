@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列布局flex</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        .left{
+            width: 200px;
+            height: 200px;
+            background-color: darkgreen;
+        }
+        .right{
+            height: 200px;
+            flex-grow: 1;
+            background-color: darkkhaki;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+
+</html>

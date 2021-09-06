@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="c1">
+            <div>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <span class="c2"></span>
+        </div>
+        <span>world</span>
+        <!-- 注释 -->
+        你好
+    </div>
+    <script>
+        var All = document.querySelector("html");
+        console.log(All.nodeName);
+        //函数开始
+        function find(All) {
+            var ele = All;
+            for (var i = 0; i < ele.childNodes.length; i++) {
+                if (ele.childNodes[i].hasChildNodes() == false && ele.childNodes[i].nodeType == 1) {
+                     console.log(ele.childNodes[i].nodeName);
+                }
+                else if (ele.childNodes[i].hasChildNodes() == true && ele.childNodes[i].nodeType == 1) {
+                    console.log(ele.childNodes[i].nodeName);
+                    var Cele = ele.childNodes[i];
+                    find(Cele);
+                }
+            }
+        }
+        find(All);
+    </script>
+</body>
+
+</html>

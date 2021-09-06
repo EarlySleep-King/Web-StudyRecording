@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background-color: chartreuse;
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1">
+        <div id="div2">123
+            <div id="div3">456</div>
+        </div>
+    </div>
+
+    <script>
+        var odiv1 = document.querySelector("#div1");
+        var odiv2 = document.querySelector("#div2");
+        var odiv3 = document.querySelector("#div3");
+        console.log(odiv1.innerHTML);
+        odiv1.onclick = function(){
+            console.log("odiv1");
+        }
+        odiv2.onclick = function(){
+            console.log("odiv2");
+        }
+        odiv3.onclick = function(){
+            console.log("odiv3");
+        }
+    </script>
+</body>
+</html>

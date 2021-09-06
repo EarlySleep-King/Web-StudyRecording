@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条</title>
+    <style>
+        .main{
+            width: 400px;
+            height: 100px;
+            margin: 150px auto;
+            border: 2px solid gray;
+            border-radius: 8px;
+            padding: 2px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #mtext{
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            float: left;
+        }
+        #long{
+            width: 0px;
+            height: 100px;
+            border-radius: 8px;
+            background-color: dodgerblue;
+        }
+        #text{
+            margin: -130px auto;
+            width: 50px;
+            height: 25px;
+            border: 1px solid gray;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 5px;
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="mtext">0%</div>
+        <div id="long"></div>
+    </div>
+    <div id="text">开始</div>
+
+    <script>
+        var o_long=0,num=0;
+        var omt = document.getElementById("mtext");
+        var otext = document.getElementById("text");
+        var olong = document.getElementById("long");
+        otext.onclick = function(){
+            timer = setInterval(function(){
+                omt.innerText=(num++) + "%";
+                o_long = o_long + 4;
+                olong.style.width = o_long + "px"; 
+                if(o_long>=400){
+                    omt.innerText=(num++) + "%";
+                    clearInterval(timer);
+                }
+            },16)
+        }
+    </script>
+</body>
+</html>

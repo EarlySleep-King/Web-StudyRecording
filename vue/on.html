@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>{{ num }}</span>
+        <button @click="appclick">ADD</button>
+        <a href="https://www.baidu.com" @click="aclick($event)">baidu</a>
+        <input value="please input" v-on:keyup.enter="inputdo">
+    </div>
+    <script>
+        let oapp = document.getElementById("app");
+        new Vue({
+            el:"#app",
+            data:{
+                num : 0
+            },
+            methods: {
+                appclick(){
+                    this.num++;
+                },
+                aclick(e){
+                    e.preventDefault();
+                },
+                inputdo(){
+                    console.log(123);
+                }
+            }
+                
+        })
+    </script>
+</body>
+</html>

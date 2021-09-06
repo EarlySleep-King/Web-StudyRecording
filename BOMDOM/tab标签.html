@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab标签</title>
+    <style>
+        .main{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 8px;
+            position: relative;
+            top: 100px;
+            box-shadow: 0px 10px 15px 1px gray;
+            background-color: lightblue;
+            overflow: hidden;
+            /* transition: all 1s; */
+        }
+        /* .main:hover{
+            transform:translate(100px,80px);
+            transform: skew(40deg,20deg);
+        } */
+
+        .top{
+            width: 100px;
+            height: 30px;
+            margin-right: 8px;
+            float: left;
+            border-radius: 6px;
+            background-color: lightgoldenrodyellow;
+            line-height: 30px;
+            text-align: center;
+            transition: all 0.35s;
+
+        }
+        .m-top{
+            width: 600px;
+            height: 46px;
+            background-color: lightgray;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .UL2{
+            display: none;
+        }
+        .UL3{
+            display: none;
+        }
+        .active{
+            background-color: rgb(79, 156, 254);
+            color: white;
+            transform:scale(1.07,1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="m-top">
+            <div class="top active">菜单1</div>
+            <div class="top">菜单2</div>
+            <div class="top">菜单3</div>
+        </div>
+        <ul class="UL1">
+            <li>我是菜单1中的内容</li>
+            <li>我是菜单1中的内容</li>
+            <li>我是菜单1中的内容</li>
+            <li>我是菜单1中的内容</li>
+            <li>我是菜单1中的内容</li>
+        </ul>
+        <ul class="UL2">
+            <li>我是菜单2中的内容123</li>
+            <li>我是菜单2中的内容456</li>
+            <li>我是菜单2中的内容789</li>
+            <li>我是菜单2中的内容211</li>
+            <li>我是菜单2中的内容211</li>
+        </ul>
+        <ul class="UL3">
+            <li>我是菜单3中的内容2342</li>
+            <li>我是菜单3中的内容5533</li>
+            <li>我是菜单3中的内容5321</li>
+            <li>我是菜单3中的内容2342</li>
+            <li>我是菜单3中的内容5357</li>
+        </ul>
+    </div>
+
+<script>
+    var a=document.getElementsByClassName("top");
+    var b=document.getElementsByTagName("ul");
+    for(var i=0;i<a.length;i++){
+        a[i].n=i;
+        a[i].onclick = function(){
+            for(var j=0;j<a.length;j++){
+                a[j].style.backgroundColor="lightgoldenrodyellow";
+                a[j].style.color="black";
+                a[j].style.transform="scale(1)";
+                b[j].style.display="none";
+            }
+            this.style.backgroundColor="rgb(79, 156, 254)";
+            this.style.color="white";
+            this.style.transform="scale(1.07,1.1)";
+            b[this.n].style.display="block";
+        }
+    }
+</script>
+
+</body>
+</html>

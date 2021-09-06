@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #img1{
+            height: 500px;
+            width: 500px;
+        }
+        #box{
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        #box2{
+            width: 500px;
+            height: 500px;
+            display: inline-block;
+            background-color: royalblue;
+            margin-left: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        #mimg{
+            width: 1250px;
+            height: 1250px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/niu.png" id="img1">
+    <div id="box"></div>
+    <div id="box2">
+        <img src="./img/niu.png" id="mimg">
+    </div>
+
+    <script>
+        var omain = document.getElementById("img1");
+        var obox = document.getElementById("box");
+        var oimg = document.getElementById("mimg");
+        var left1=0,right1=0,i=0,k=0;
+        obox.onmousedown = function(e){
+            left1 = e.clientX-obox.offsetLeft;
+            right1 = e.clientY-obox.offsetTop;
+            i=1;
+        }
+        window.onmousemove = function(e2){
+            if(e2.clientX<=left1||e2.clientX>=500-(200-left1)||e2.clientY<=right1||e2.clientY>=500-(200-right1)){
+                null;
+            }
+            else if(i==1){
+            obox.style.left = e2.clientX-left1+"px";
+            obox.style.top = e2.clientY-right1+"px";
+            oimg.style.left = (e2.clientX-left1)*-2.5+"px";
+            oimg.style.top = (e2.clientY-right1)*-2.5+"px";
+            k=0;
+            }
+        }
+        obox.onmouseup = function(e3){
+            i=0;
+        }
+    </script>
+</body>
+</html>

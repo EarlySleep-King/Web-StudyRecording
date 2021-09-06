@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜2.0</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #main{
+            display: inline-block;
+        }
+        #img1{
+            height: 500px;
+            width: 500px;
+        }
+        #box{
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        #box2{
+            width: 500px;
+            height: 500px;
+            display: inline-block;
+            background-color: royalblue;
+            margin-left: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        #mimg{
+            width: 1250px;
+            height: 1250px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="./img/niu.png" id="img1">
+        <div id="box"></div>
+    </div>
+    <div id="box2">
+        <img src="./img/niu.png" id="mimg">
+    </div>
+
+    <script>
+        var omain = document.getElementById("main");
+        var obox = document.getElementById("box");
+        var oimg = document.getElementById("mimg");
+        omain.onmousemove = function(e2){
+            mleft=e2.clientX-100;
+            mtop=e2.clientY-100;
+            if(mleft<=0){
+                mleft=0 + "px";
+                console.log(1);
+            }
+            if(mleft>=300){
+                mleft=300 + "px";
+                console.log(2);
+            }
+            if(mtop<=0){
+                mtop=0 + "px";
+                console.log(3);
+            }
+            if(mtop>=300){
+                mtop=300 + "px";
+                console.log(4);
+            }
+            console.log(e2.clientX-100);
+            obox.style.left = mleft + "px";
+            obox.style.top = mtop + "px";
+            oimg.style.left = (mleft)*-2.5+"px";
+            oimg.style.top = (mtop)*-2.5+"px";
+            k=0;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function deepCopy(target) {
+            let result;//设置返回值
+            if(typeof target ==="object"){//判断传入数据是否为引用类型
+                if(Array.isArray(target)){//判断数据是否为数组
+                    result = [];
+                    for(let ele of target){//遍历数组
+                        result.push(deepCopy(ele));//对每个数组值再次使用深拷贝函数
+                    }
+                }else{//传入数据为对象类型
+                    result = {};
+                    for(let ele in target){//遍历对象
+                        result[ele] = deepCopy(target[ele]);//对每个属性再次使用深拷贝函数
+                    }
+                }
+            }else{//传入数据为基本类型，直接返回传入值
+                result = target;
+            }
+            return result;
+        }
+
+        let obj1 = {
+            name:"小明",
+            age:19,
+            person:{
+                name:"小红"
+            }
+        }
+        let arr1 = [1,2,3,[4,5,6],7];
+
+        let obj2 = deepCopy(obj1);
+        obj2.person.name = "小白";
+        console.log(obj1);
+        let arr2 = deepCopy(arr1);
+        arr2[3][0] = 5;
+        console.log(arr1);
+    </script>
+</body>
+</html>

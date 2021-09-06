@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUDONG</title>
+    <style>
+        /* 浮动：可以实现块元素在同一行显示 ,元素会变为文档流，clear:both会忽略同一空间内左右元素的浮动效果*/
+        /*  display:block可以变成块元素
+        display"inline可以变成行元素
+        display:inline-block可以变为行块元素*/
+        .box::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .div1{
+            width: 80px;
+            height: 80px;
+            background-color: chocolate;
+            float: left;
+        }
+        .div2{
+            width: 80px;
+            height: 80px;
+            background-color: cornflowerblue;
+            float: left;
+        }
+        .div3{
+            width: 80px;
+            height: 120px;
+            background-color: cornsilk;
+            float: left;
+        }
+        .box{
+            background-color: purple;
+        }
+        .text1{
+            float: left;
+        }
+        .text2{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div4"></div>
+    <div>
+    <span class="text1">hello</span>
+    <span class="text2">world</span>
+</body>
+</html>

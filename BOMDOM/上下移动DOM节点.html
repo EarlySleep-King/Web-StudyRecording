@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .zdiv{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parents">
+        <div class="zdiv" id="div1">
+            <span>元素1</span>
+            <button class="b1">向上</button>
+            <button class="b2">向下</button>
+        </div>
+        <div class="zdiv" id="div2">
+            <span>元素2</span>
+            <button class="b1">向上</button>
+            <button class="b2">向下</button>
+        </div>
+        <div class="zdiv" id="div3">
+            <span>元素3</span>
+            <button class="b1">向上</button>
+            <button class="b2">向下</button>
+        </div>
+        <div class="zdiv" id="div4">
+            <span>元素4</span>
+            <button class="b1">向上</button>
+            <button class="b2">向下</button>
+        </div>
+        <div class="zdiv" id="div5">
+            <span>元素5</span>
+            <button class="b1">向上</button>
+            <button class="b2">向下</button>
+        </div>
+    </div>
+    <script>
+        var up = document.querySelectorAll(".b1");
+        var down = document.querySelectorAll(".b2");
+        var odiv = document.querySelector(".parents");
+        for(var i=0;i<up.length;i++){
+            up[i].onclick = function(){
+                var parent1 = this.parentElement;
+                //带element:只包括标签元素
+                //不带ele：无限制，包括文字、注释、标签
+                // console.log(parent.previousElementSibling);
+                // console.log(parent.previousSibling);
+                var pre = parent1.previousElementSibling;
+                if(pre){
+                    odiv.insertBefore(parent1,pre);
+                }
+                else{
+                    console.log("无法向上！");
+                }
+            }
+            down[i].onclick = function(){
+                var parent2 = this.parentElement;
+                var next = parent2.nextElementSibling;
+                if(next){
+                    odiv.insertBefore(next,parent2);
+                }
+                else{
+                    console.log("无法向下！");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

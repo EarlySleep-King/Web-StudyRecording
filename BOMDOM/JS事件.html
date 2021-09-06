@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="main">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var omain = document.querySelector("#main");
+        //这种方式效率低
+        // for(var i=0;i<omain.children.length;i++){
+        //     omain.children[i].onclick = function(){
+        //         console.log(this.outerText);
+        //         this.outerText = "123";
+        //     }
+        // }
+
+        //事件委托，好！
+        //可用于子元素循环绑定事件，动态添加元素绑定事件；
+        omain.onclick = function(e){
+            console.log(e.target.innerText);
+        }
+
+        function f1(){
+            var n=999;
+            console.log(this);
+            console.log(this.n);
+            nAdd=function(){n+=1}
+            function f2(){
+                console.log(n);
+            }
+            return f2;
+        }
+
+        var result = f1();
+        result();
+        // console.log(n);
+        // console.log(omain.children);
+    </script>
+</body>
+</html>

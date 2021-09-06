@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="odiv" style="background-color: aqua;left: 20px;height: 20px;"></div>
+    <script>
+        // function foo(){
+        //     name = "aaa";
+        //     console.log(this.name);
+        //     return 123;
+        // }
+        // obj = {
+        //     name : "bbb"
+        // }
+        // var fun = foo;
+        // fun.bind(obj);
+        // console.log(fun.bind(obj)());
+
+
+        // function foo(){
+        //     var a= "this";
+        //     console.log(this.a);
+        //     foo.call(foo);
+        // }
+        // window.setInterval(foo(),1000);
+
+            var arr = "123";
+            var fun = function(){} 
+            function add(c, d) {
+          return this.a + this.b + c + d;
+        }
+        var obj={
+            a:1,
+            b:2
+        }
+        // console.log(add.call(obj,3,4));
+        console.log(Function.prototype);
+
+        // var foo = function(){
+        //     console.log("aaa");
+        // }.call();
+        // console.log(foo);//undefined
+
+        // //6、请补全下列代码
+        // function foo() {
+        //     console.log("hello world");
+        //     return foo
+        // }
+        // window.setInterval(foo(), 1000);
+    </script>
+</body>
+
+</html>

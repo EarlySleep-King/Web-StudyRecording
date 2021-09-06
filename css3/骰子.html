@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: blanchedalmond;
+        }
+
+        body {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            width: 250px;
+            height: 250px;
+            border: 1px solid grey;
+            border-radius: 25px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            box-sizing: border-box;
+        }
+
+        li {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 25px;
+            list-style: none;
+        }
+
+        .u1 {
+            justify-content: center;
+            align-items: center;
+        }
+
+        #l2 {
+            align-self: flex-end;
+        }
+
+        .u3 li:nth-child(2) {
+            align-self: center;
+        }
+
+        .u3 li:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        .u4 {
+            flex-direction: column;
+            padding: 0px;
+        }
+
+        .u4 div {
+            justify-content: space-around;
+            display: flex;
+        }
+        .u5{
+            flex-direction: column;
+            padding: 10px 0px 10px 0px;
+        }
+        .u5 div {
+            justify-content: space-around;
+            display: flex;
+        }
+        .u6{
+            flex-direction: column;
+            padding: 10px 0px 10px 0px;
+        }
+        .u6 div {
+            justify-content: space-around;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="u1">
+        <li></li>
+    </ul>
+    <ul class="u2">
+        <li id="l1"></li>
+        <li id="l2"></li>
+    </ul>
+    <ul class="u3">
+        <li id="l3"></li>
+        <li id="l4"></li>
+        <li id="l5"></li>
+    </ul>
+    <ul class="u4">
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+    </ul>
+    <ul class="u5">
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+        <div>
+            <li></li>
+        </div>
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+    </ul>
+    <ul class="u6">
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+        <div>
+            <li></li>
+            <li></li>
+        </div>
+    </ul>
+</body>
+
+</html>

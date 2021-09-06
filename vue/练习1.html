@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习1</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <script src="./js/vue.js"></script>
+        <style>
+            .container {
+                padding-top: 100px;
+            }
+    
+            .form-inline {
+                margin-bottom: 20px;
+            }
+    
+            .active {
+                background-color: red;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="exampleInputAmount"
+                        placeholder="搜索名称" v-model="str">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" @click="b1click">搜索</button>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">商品名称</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入商品名称" v-model="newname">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">商品价格</label>
+                <input type="email" class="form-control" id="exampleInputEmail2"
+                    placeholder="请输入商品价格" v-model.number="newprice">
+            </div>
+            <button type="button" class="btn btn-default" @click='addclick'>添加</button>
+        </form>
+        <div>
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>商品名称</th>
+                        <th>商品价格</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in goodlist" v-bind:class="{active:item.isclick}" @click="listclick(item)">
+                        <th scope="row">
+                          <input type="checkbox" name="goods" v-bind:checked="item.isclick">
+                        </th>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td><button type="button" class="btn btn-primary btn-xs" @click.stop="deletclick(item)">删除</button></td>
+                        <!-- 阻止冒泡 -->
+                    </tr>
+                    <tr>
+                        <td colspan="2">总价</td>
+                        <td >{{ goodsum }}</td>
+                        <td><button type="button" class="btn btn-primary btn-xs" @click="alldelete">删除选中</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                str:"",
+                newname:"",
+                newprice:"",
+                // goodsum:0,
+                goodlist:[
+                    {
+                        name:"衣服",
+                        price:120,
+                        isclick:false
+                    },
+                    {
+                        name:"裤子",
+                        price:100,
+                        isclick:false
+                    },
+                    {
+                        name:"鞋子",
+                        price:150,
+                        isclick:false
+                    },
+                    {
+                        name:"帽子",
+                        price:300,
+                        isclick:false
+                    }
+                ]
+            },
+            methods:{
+                //搜索按钮
+                b1click(){
+                    // var a = this.goodlist.length;
+                    // for(var i=0;i<a;i++){
+                    //     if(this.goodlist[i].name.includes(this.str)){
+
+                    //     }else{
+                    //         this.goodlist.splice(i,1);
+                    //         i--;
+                    //     }
+                    //     a = this.goodlist.length;
+                    // }
+                    let searchtext = this.str;
+                    let newlist = [];
+                    let oldlist = this.goodlist;
+                    newlist = oldlist.filter(function (text) {
+                        if(text.name.includes(searchtext)){
+                            return text;
+                        }
+                    })
+                    this.goodlist = newlist;
+                },
+                //添加按钮
+                addclick(){
+                    let obj = {};
+                    obj.name = this.newname;
+                    obj.price = this.newprice;
+                    obj.isclick = false;
+                    console.log(obj.name);
+                    this.goodlist.push(obj);
+                },
+                //选中功能
+                listclick(flag){
+                    // let sum = 0;
+                    let thisList = this.goodlist;
+                    console.log(flag.name);
+                        if(flag.isclick==false){
+                            flag.isclick = true;
+                        }else{
+                            flag.isclick = false;
+                        }
+                        // thisList.map(function(item){
+                        //     if(item.isclick == true){
+                        //         sum = sum + item.price;
+                        //     }
+                        // })
+                        // this.goodsum = sum;
+                },
+                //单行删除
+                deletclick(flag2){
+                    this.goodlist.splice(flag2,1);
+                },
+                //选中删除
+                alldelete(){
+                    let newlist = this.goodlist;
+                    let newarr = newlist.filter(function(item){
+                        if(item.isclick == false){
+                            return item;
+                        }
+                    })
+                    this.goodlist = newarr;
+                }
+            },
+            computed:{
+                goodsum(){
+                    let sum = 0;
+                    let newlist = this.goodlist;
+                    newlist.map(function(item){
+                        if(item.isclick){
+                            sum += item.price;
+                        }
+                    })
+
+                    return sum;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

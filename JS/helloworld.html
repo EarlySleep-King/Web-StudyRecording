@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <script>
+        // 习惯写在body结束上方
+        // alert:弹出窗口
+        // alert("hello world")
+        document.write("<h2>hello world!!!<h2>");//向文档内写内容
+        //单引号里面括双引号，双引号里面括单引号，或使用\"
+        document.write("asdqwds'asd'a")
+        // console.log("hello world");
+            var a=1;
+            var b="hello";
+            var head_NavTop
+            console.log(a ,b);
+            // 基本数据类型
+            //var不初始化的情况下，会保存undefined
+            var str ="123qwe";
+            var num =1;
+            var boo= true;//布尔型
+            var und=undefined;//未定义
+            var nul = null;//空对象
+            //引用数据类型
+            var arr = [1,2,3];
+            var obj = {
+            }
+            //判断数据类型,不能判断所有数据类型
+            typeof (str);
+            //字符型和数值型运算时，结果为字符
+            //显式类型转换
+            console.log(parseInt())
+            //隐式类型转换：乘法，除法，减法；
+            //无法进行转换的会输出：NaN
+            //加号：字符串拼接
+
+            //三目运算符：（ ? : ）?前结果为true，返回值为：前的值，返回值为false，返回：后的值
+            //0,"",undefined,null,false都为假
+            //？前如果为字符，字符里面有内容为真，无内容为假
+            //与或非判断逻辑为：返回其中的值，而不是返回布尔值
+
+            //分支判断
+            if(a>10){}
+            else if(0){}
+            else{}
+
+            switch(a){
+                case 1: break;
+                case 2: ;
+                default: console.log("当前值不再有效范围内")
+            }//switch用===进行判断，不进行隐式类型转换
+
+            //循环
+            for(var i=0;i<10;i++){
+
+            }
+            while(0){
+
+            }
+            do{
+
+            }while(0) 
+            
+            //函数
+            //形参
+            function sybs(str){
+                console.log(str);
+            }
+            sybs()//实参
+            //函数内部定义变量为局部变量，仅在函数内部生效，内部没定义就不算局部变量，算全局变量
+            function foo(){
+                a=20
+                console.log(a);
+            }
+            foo()
+            console.log(a);
+
+            //数组
+            var a=[1,2,3,4,5,6,7,8,9,10]
+            console.log(a[0]);
+            a[10]=11;
+            //添加值方法
+            a.push(11)
+            a[0]="QAQ"
+            console.log(a);
+
+            //对象
+            var person={
+                userName:"dSB",
+                age:18,
+                sex:"1",
+                yES:function(){}
+            }
+            
+            console.log(person.userName);
+            person.userName="xSB";//如果对象中有这个元素名，会修改此元素，否则重新创建
+            console.log(person);
+
+            //内置属性，方法：
+            var ran= Math.random;//0-1之间的随机数
+            console.log(ran);
+            var uName= window.prompt("请输入");
+            var isTrue=window.confirm("是否需要点餐");
+
+            // //计时器，内部函数为回调函数
+        // window.setTimeout(function(){
+        //     window.alert("你好！！！")
+        //     },2000);
+        // //重复执行,定时,停止
+        // var num=10;
+        // var timer=window.setInterval(
+        //     function(){
+        //         console.log(num);
+        //         num--;
+        //         if(num==1)
+        //         clearInterval(timer);
+        //     },1000
+        // )
+        
+    </script>
+</body>
+</html>

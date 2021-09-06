@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>我是父组件:{{ name }}</div>
+        <demo1 v-bind:fname="name" @change="changed"></demo1>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name:"小明"
+            },
+            methods:{
+                changed(newName){
+                    this.name = newName;
+                }
+            },
+            components:{
+                demo1:{
+                    props:['fname'],
+                    template:`
+                    <div>
+                        <div>我是子组件:{{fname}}</div>
+                        <button @click="changeName">change</button>
+                    </div>
+                    `,
+                    methods:{
+                        changeName(){
+                            this.$emit('change','小红');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

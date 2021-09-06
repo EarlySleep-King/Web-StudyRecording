@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="text" onkeyup="readtext()">
+    <div id="text2"></div>
+    <script>
+
+        var obj = {
+            name: ["text", "text1", "text2", "text3"]
+        }
+        obj = JSON.stringify(obj);
+        console.log(obj);
+
+        function readtext() {
+            var flag = 1;
+            var oin = document.getElementById("text");
+            var odiv = document.getElementById("text2");
+            // console.log(oin.value);
+            //第一步：创建XMLHttpRequest对象
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //第二步：向服务器发送请求
+            xmlhttp.open("GET", "./json.json", true);
+            xmlhttp.send();
+            //第三步：相应返回结果
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var jsonObj = JSON.parse(xmlhttp.responseText);
+                    console.log(jsonObj);
+                    var ovalue = oin.value;
+                    for(var i=0;i<jsonObj.name.length;i++){
+                        if(ovalue==jsonObj.name[i]){
+                            odiv.innerText = "此ID不可用";
+                            odiv.style.color = "red";
+                            flag=0;
+                        }
+                    }
+                    if(flag==1){
+                        odiv.innerText = "此ID可用";
+                        odiv.style.color = "grey";
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DW</title>
+    <style>
+        /* 定位 */
+        .content{
+            height: 5000px;
+            width: 1200px;
+        }
+        .back-top{
+            position: fixed;
+            /* 下方的四个属性值，只有在使用position定位之后才生效 (固定定位,相对于浏览器窗口)*/
+            top: 0;
+            left: 0;
+            right: 50px;
+            bottom: 50px;
+        }
+        .content2{
+            width: 400px;
+            height: 400px;
+            background-color: cyan;
+            /* overflow-hidden溢出隐藏， */
+            overflow: hidden;
+        }
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: darkgoldenrod;
+            position:absolute;
+            /* fix和absolute都脱离文档流 */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="content"></div>
+    <div class="back-top">返回顶部</dic> -->
+        <div class="content2">
+            <div class="div1">
+</body>
+</html>

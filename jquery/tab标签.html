@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <style>
+        .main{
+            width: 600px;
+            height: 400px;
+            border: 1px solid gray;
+            margin: 50px auto;
+        }
+        .dh{
+            width: 600px;
+            height: 70px;
+            border: 1px solid gray;
+        }
+        .btn{
+            height: 60px;
+            width: 100px;
+            display: inline-block;
+            margin: 5px;
+            background-color: dodgerblue;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 60px;
+        }
+        .no{
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="dh">
+            <div class="btn">选项一</div>
+            <div class="btn">选项二</div>
+            <div class="btn">选项三</div>
+        </div>
+        <div class="text">
+            <ul>
+                <li>选项一中内容</li>
+                <li>选项一中内容</li>
+                <li>选项一中内容</li>
+            </ul>
+        </div>
+        <div class="text no">
+            <ul>
+                <li>选项二中内容</li>
+                <li>选项二中内容</li>
+                <li>选项二中内容</li>
+            </ul>
+        </div>
+        <div class="text no">
+            <ul>
+                <li>选项三中内容</li>
+                <li>选项三中内容</li>
+                <li>选项三中内容</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(".btn").each(function(){
+            $(this).mousemove(function(){
+                $($(".text")[$(this).index()]).removeClass("no");
+                $(".text").not($(".text")[$(this).index()]).addClass("no");
+                // console.log($(this).index());
+            })
+        })
+        // console.log($($(".text")[1]));
+    </script>
+</body>
+</html>

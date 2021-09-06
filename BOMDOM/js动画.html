@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS动画</title>
+    <style>
+        #squal1{
+            width: 200px;
+            height: 50px;
+            background-color: aquamarine;
+            margin: 10px;
+            box-shadow: 2px 2px 5px  gray;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="squal1"></div>
+    <div id="squal1"></div>
+    <div id="squal1"></div>
+    <script>
+        var os1 = document.getElementsByTagName("div");
+        var os2=[];
+        var _width=[200,200,200];
+        var i=[1,1,1];
+        var timer1=[],timer2=[];
+        for(var k=0;k<os1.length;k++){
+            os1[k].n=k;
+
+            os1[k].onmouseenter = function(){
+            //需要将s设置为局部变量!
+            var s=this.n;
+            os2[s]=this;
+            if(i[os2[s].n]==0){
+                clearInterval(timer2[os2[s].n]);
+            }
+            i[os2[s].n]=0;
+            timer1[os2[s].n]=setInterval(function(){
+                os2[s].style.width = (_width[os2[s].n]++)+"px";
+                console.log(os2[s].n);
+                if(_width[os2[s].n]==600){
+                    clearInterval(timer1[os2[s].n]);
+                }
+            },10)
+        }
+        os1[k].onmouseleave = function(){
+            var s=this.n;
+            os2[s]=this;
+            clearInterval(timer1[os2[s].n]);
+            timer2[os2[s].n]=setInterval(function(){
+                os2[s].style.width = (_width[os2[s].n]--)+"px";
+                console.log(os2[s].n);
+                if(_width[os2[s].n]==200){
+                    clearInterval(timer2[os2[s].n]);
+                }
+            },10)
+        }
+        }
+    </script>
+</body>
+</html>

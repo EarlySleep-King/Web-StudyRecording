@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Demo</title>
+    <style>
+        /* 选择器优先级：!important>内联样式>id选择器>类选择器>标签选择器>*选择器 */
+        /* 当有多个同类型选择器时，为累加方式计算权重 */
+        /* 标签选择器 */
+        div{
+            color: red;
+            font-size: 50px;
+        }
+        /* 类选择器 只要类名相同，进行统一控制，包括同名*/
+        /* 类名可以写多个，比如class="div1 div2 div3" */
+        .div1{
+            color: seagreen;
+        }
+        /* id选择器 id值不可重复,唯一值*/
+        #box{
+            color: skyblue;
+            font-size: 40px;
+        }
+        /* *选择器，优先级最低 */
+        *{
+            color: blue;
+        }
+        /* 后代选择器 */
+        .parents .div1{
+            color:coral;
+        }
+
+        span{
+            color: purple;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="div1" id="box">hello</div>
+    <div class="div1">world</div>
+    <!-- 内联样式 style-->
+    <div style="color: tan;">Demo</div>
+
+    <div class="parents">
+        <div class="div1">html</div>
+    </div>
+
+    <span>123</span>
+    <span>456</span>
+
+</body>
+</html>
