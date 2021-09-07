@@ -12,7 +12,7 @@ export default {
     };
   },
   created(){
-      console.log(this.$route.params.time);
+      // console.log(this.$route.params.time);
   }
 };
 </script>
