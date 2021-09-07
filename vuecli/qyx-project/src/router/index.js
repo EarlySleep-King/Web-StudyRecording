@@ -36,11 +36,19 @@ const routes = [
         component: () => import('../views/test_page/ChildPage2.vue')
       }
     ]
+  },
+  {
+    path:'/home',
+    redirect:'/'
+  },
+  {
+    path:'*',
+    component:() => import('../views/Error.vue')
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
