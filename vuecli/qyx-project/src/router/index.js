@@ -18,7 +18,11 @@ const routes = [
   {
     path: '/mypage',
     name: 'mypage',
-    component: () => import('../views/MyPage.vue')
+    component: () => import('../views/MyPage.vue'),
+    // beforeEnter(to,from,next){
+    //   console.log(to,from);
+    //   next();
+    // }
   },
   {
     path:'/parentpage',

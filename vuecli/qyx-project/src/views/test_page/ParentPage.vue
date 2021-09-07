@@ -16,6 +16,12 @@ export default {
 
     };
   },
+  beforeRouteUpdate(to,from,next){
+    //不要忘记采用驼峰命名
+    // 可用在父页面中，当子页面变化时执行
+    console.log(to,from);
+    next();
+  }
 };
 </script>
 <style scoped>
