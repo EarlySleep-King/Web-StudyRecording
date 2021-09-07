@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>|
       <router-link to="/mypage">MyPage</router-link>|
+      <router-link to="/mypage2">MyPage2</router-link>|
       <router-link to="/parentpage">ParentPage</router-link>|
       <router-link to="/home">Back to Home</router-link>
       <button @click="routerHandle">编程式导航</button>
@@ -35,7 +36,7 @@ export default {
     transform: translateX(100%);
   }
   .move-enter-active{
-    transition: all 1s ease;
+    transition: all 0.7s ease;
     position: absolute;
     top: 0;
     width: 100%;
@@ -47,7 +48,7 @@ export default {
     transform: translateX(0);
   }
   .move-leave-active{
-    transition: all 1s ease;
+    transition: all 0.7s ease;
     position: absolute;
     top: 0;
     width: 100%;

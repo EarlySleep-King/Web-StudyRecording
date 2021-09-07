@@ -25,6 +25,11 @@ const routes = [
     // }
   },
   {
+    path:'/mypage2',
+    name:'mypage2',
+    component: () => import('../views/MyPage2.vue')
+  },
+  {
     path:'/parentpage',
     name:'parentpage',
     component: () => import('../views/test_page/ParentPage.vue'),
