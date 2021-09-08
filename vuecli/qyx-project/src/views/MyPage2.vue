@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TestPage v-bind:myname="str"></TestPage>
+    <TestPage v-bind:myname.sync="str"></TestPage>
   </div>
 </template>
 <script>
