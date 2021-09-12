@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            position: relative;
+        }
+        div{
+            box-sizing: border-box;
+            height: 200px;
+            width: 200px;
+        }
+        div::after{
+            box-sizing: border-box;
+            height: 200px;
+            width: 200px;
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            border-radius: 50%;
+        }
+        .blue{
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 10px solid blue;
+            border-radius: 50%;
+        }
+        .blue::after{
+            border: 10px solid blue;
+            z-index: 1;
+            border-bottom: 10px solid transparent;
+        }
+
+        .black{
+            position: absolute;
+            top: 0;
+            left: 210px;
+            border: 10px solid black;
+            border-radius: 50%;
+        }
+        .black::after{
+            border: 10px solid black;
+            border-left: 10px solid transparent;
+            z-index: 1;
+        }
+        .red{
+            position: absolute;
+            top: 0;
+            left: 420px;
+            border: 10px solid red;
+            border-radius: 50%;
+        }
+        .red::after{
+            border: 10px solid red;
+            border-left: 10px solid transparent;
+            z-index: 3;
+        }
+        .yellow{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            border: 10px solid yellow;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .green{
+            position: absolute;
+            top: 100px;
+            left: 310px;
+            border: 10px solid green;
+            border-radius: 50%;
+        }
+        .green::after{
+            border: 10px solid green;
+            border-top: 10px solid transparent;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="blue"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    </div>
+</body>
+</html>
