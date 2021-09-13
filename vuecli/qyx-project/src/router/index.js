@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+//预加载
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -13,6 +14,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
+    //懒加载
     component: () => import('../views/About.vue')
   },
   {
