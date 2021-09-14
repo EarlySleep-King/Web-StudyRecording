@@ -10,6 +10,26 @@ const routes = [
     name: 'Movie',
     component: Movie
   },
+  {
+    path: '/movie',
+    name: 'Movie',
+    component: Movie
+  },
+  {
+    path: '/music',
+    name: 'Music',
+    component: () => import('../views/music/Music.vue')
+  },
+  {
+    path: '/book',
+    name: 'Book',
+    component: () => import('../views/book/Book.vue')
+  },
+  {
+    path: '/talk',
+    name: 'Talk',
+    component: () => import('../views/talk/Talk.vue')
+  }
   // {
   //   path: '/about',
   //   name: 'About',
