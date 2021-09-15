@@ -67,11 +67,11 @@ export default {
     clickPush(item) {
       console.log(item);
       if (this.flag.path != item.path) {
-        sessionStorage.setItem("flag",item);
-        sessionStorage.setItem("flagName", item.name);
-        sessionStorage.setItem("flagId", item.id);
-        sessionStorage.setItem("flagPath", item.path);
-        sessionStorage.setItem("flagTitle", item.title);
+        sessionStorage.setItem("flag",JSON.stringify(item));
+        // sessionStorage.setItem("flagName", item.name);
+        // sessionStorage.setItem("flagId", item.id);
+        // sessionStorage.setItem("flagPath", item.path);
+        // sessionStorage.setItem("flagTitle", item.title);
         this.flag.path = item.path;
         this.$router.push(item.path);
         this.flag.name = item.name;
@@ -111,13 +111,12 @@ export default {
     // }
   },
   created() {
-    console.log(1);
-    // this.flag = sessionStorage.getItem("flag");
-    this.flag.name = sessionStorage.getItem("flagName");
-    this.flag.id = sessionStorage.getItem("flagId");
-    this.flag.path = sessionStorage.getItem("flagPath");
-    this.flag.title = sessionStorage.getItem("flagTitle");
-    console.log(this.flag.name);
+    this.flag = JSON.parse(sessionStorage.getItem('flag'))?JSON.parse(sessionStorage.getItem('flag')):this.flag;
+    // this.flag = JSON.parse(sessionStorage.getItem('flag'));
+    // this.flag.name = sessionStorage.getItem("flagName");
+    // this.flag.id = sessionStorage.getItem("flagId");
+    // this.flag.path = sessionStorage.getItem("flagPath");
+    // this.flag.title = sessionStorage.getItem("flagTitle");
   },
 };
 </script>
@@ -127,7 +126,7 @@ nav {
   height: 1rem;
   width: 100%;
   background-color: dodgerblue;
-  color: dimgray;
+  color: white;
   position: fixed;
 }
 header {

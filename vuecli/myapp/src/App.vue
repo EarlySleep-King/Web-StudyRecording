@@ -23,6 +23,11 @@ export default {
   padding: 0;
   list-style: none;
 }
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
 body{
   padding: 1rem 0;
 }
