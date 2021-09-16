@@ -1,12 +1,9 @@
 <template>
   <div>
     <ul>
-      <li class="clearfix" v-for="item in dataList" v-bind:key="item.id">
+      <li @click="goCinemas" class="clearfix" v-for="item in dataList" v-bind:key="item.id">
         <div class="left">
-          <img
-            v-bind:src="item.img"
-            class="img"
-          />
+          <img v-bind:src="item.img" class="img" />
         </div>
         <div class="right">
           <p>{{ item.nm }}</p>
@@ -30,13 +27,32 @@ export default {
     return {
       dataList: [],
       datasrc: "",
+      isContinue: true,
     };
   },
   methods: {
+    goCinemas(){
+      this.$router.push('/cinemas');
+    },
+    getScroll(){
+      //滚动监听
+      let htmlDom = document.documentElement;
+      window.onscroll = () => {
+      let hHeight = htmlDom.clientHeight; //视口高度
+      let scrollTop = htmlDom.scrollTop; //滚动了多少距离
+      let scrollHeight = htmlDom.scrollHeight; //可滚动区域的高度
+      console.log(hHeight,scrollTop,scrollHeight);
+      if(hHeight+scrollTop+150 >= scrollHeight){
+        this.getData();
+      }
+      }
+    },
     getData() {
       // let getUrl = "https://m.maoyan.com/ajax/movieOnInfoList?";
+      if(this.isContinue){
       let birdUrl =
         "https://bird.ioliu.cn/v2?url=https://m.maoyan.com/ajax/movieOnInfoList?";
+        this.isContinue = false;
       axios
         .get(birdUrl)
         .then((res) => {
@@ -47,16 +63,19 @@ export default {
               res.data.movieList[i].img.substring(26);
               console.log(res.data.movieList[i].img);
           }
-          this.dataList = res.data.movieList;
+          this.dataList = [...(this.dataList),...(res.data.movieList)];
           console.log(this.dataList);
+          this.isContinue = true;
         })
         .catch(function () {
           console.log("error");
         });
+      }
     },
   },
   created() {
     this.getData();
+    this.getScroll();
   },
 };
 </script>
