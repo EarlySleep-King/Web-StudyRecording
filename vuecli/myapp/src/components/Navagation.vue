@@ -160,7 +160,7 @@ header p {
 }
 .music header,
 .music nav {
-  background-color: cadetblue;
+  background-color: rgb(95, 158, 160);
 }
 .book header,
 .book nav {

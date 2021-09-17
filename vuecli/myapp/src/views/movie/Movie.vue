@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li @click="goCinemas" class="clearfix" v-for="item in dataList" v-bind:key="item.id">
+      <li @click="goCinemas(item.id,item.rt)" class="clearfix" v-for="item in dataList" v-bind:key="item.id">
         <div class="left">
           <img v-bind:src="item.img" class="img" />
         </div>
@@ -31,7 +31,8 @@ export default {
     };
   },
   methods: {
-    goCinemas(){
+    goCinemas(id,rt){
+      console.log(id,rt);
       this.$router.push('/cinemas');
     },
     getScroll(){
