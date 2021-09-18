@@ -43,7 +43,7 @@ export default {
       let scrollTop = htmlDom.scrollTop; //滚动了多少距离
       let scrollHeight = htmlDom.scrollHeight; //可滚动区域的高度
       console.log(hHeight,scrollTop,scrollHeight);
-      if(hHeight+scrollTop+150 >= scrollHeight){
+      if(hHeight+scrollTop+200 >= scrollHeight){
         this.getData();
       }
       }
