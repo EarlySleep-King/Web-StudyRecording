@@ -1,6 +1,5 @@
 <template>
-  <div>
-    音乐
+  <div v-loading.fullscreen="loading" element-loading-text="加载中……">
     <aplayer
       :music="music"
     />
@@ -30,6 +29,7 @@ export default {
   data() {
     return {
       listData: [],
+      loading: true,
       music: {
         title: '总有一天你会出现在我身边',
         artist: '棱镜',
@@ -58,6 +58,7 @@ export default {
       axios.get(birdUrl).then((res) => {
         console.log(res);
         this.listData = res.data.playlist.tracks;
+        this.loading = false;
       });
     },
   },

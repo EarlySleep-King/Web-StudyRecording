@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-loading.fullscreen="loading" element-loading-text="加载中……">
     <ul>
       <li @click="goCinemas(item.id,item.rt)" class="clearfix" v-for="item in dataList" v-bind:key="item.id">
         <div class="left">
@@ -28,6 +28,7 @@ export default {
       dataList: [],
       datasrc: "",
       isContinue: true,
+      loading: true,
     };
   },
   methods: {
@@ -67,6 +68,7 @@ export default {
           this.dataList = [...(this.dataList),...(res.data.movieList)];
           console.log(this.dataList);
           this.isContinue = true;
+          this.loading = false;
         })
         .catch(function () {
           console.log("error");

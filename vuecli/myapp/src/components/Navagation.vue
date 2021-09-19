@@ -128,6 +128,7 @@ nav {
   background-color: dodgerblue;
   color: white;
   position: fixed;
+  z-index: 10;
 }
 header {
   top: 0;
