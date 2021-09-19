@@ -1,88 +1,144 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(item,index) in talkList" v-bind:key="index">
-        <div>
-          <div class="right">
-            <div>{{ item.question }}</div>
-            <img src="@/assets/me.jpg" class="rightJpg">
-          </div>
-        </div>
-        <div>
-          <div class="left">
-            <img src="@/assets/you.jpg" class="leftJpg">
-            <div>{{ item.answer }}</div>
-          </div>
-        </div>
-      </li>
-    </ul>
-
     <div class="inputDiv">
-      <input v-model="inputText" placeholder="请输入您的问题" v-on:keyup.enter="sendText">
+      <input
+        v-model="inputText"
+        placeholder="请输入您的问题"
+        v-on:keyup.enter="sendText"
+      />
       <button @click="sendText">发送</button>
+    </div>
+    <div class="white">
+    </div>
+    <div class="Content">
+      <ul>
+        <li v-for="(item, index) in talkList" v-bind:key="index">
+          <div class="conversition clearfix">
+            <div class="right">
+              <div class="rightSquare">
+                {{ item.question }}
+              </div>
+              <img src="@/assets/me.jpg" class="rightJpg" />
+            </div>
+          </div>
+          <div class="conversition clearfix">
+            <div class="left">
+              <img src="@/assets/you.jpg" class="leftJpg" />
+              <div class="leftSquare">
+                {{ item.answer }}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
       inputText: "",
-      talkList:[],
-
+      talkList: [],
     };
   },
-  methods:{
-    sendText(){
+  methods: {
+    sendText() {
       // console.log(this.inputText);
-      let Url = 'https://api.ownthink.com/bot?appid=xiaosi&userid=user&spoken=' + this.inputText;
-      axios.get(Url).then((res) => {
-        console.log(res.data.data.info.text);
-        let question = this.inputText;
-        let answer = res.data.data.info.text;
-        let arr = {question,answer};
-        this.talkList.push(arr);
-        console.log(this.talkList);
-        this.inputText = "";
-      }).catch(() => {
-        console.log('error');
-      })
+      let Url =
+        "https://api.ownthink.com/bot?appid=xiaosi&userid=user&spoken=" +
+        this.inputText;
+      axios
+        .get(Url)
+        .then((res) => {
+          console.log(res.data.data.info.text);
+          let question = this.inputText;
+          let answer = res.data.data.info.text;
+          let arr = { question, answer };
+          this.talkList.push(arr);
+          console.log(this.talkList);
+          this.inputText = "";
+        })
+        .catch(() => {
+          console.log("error");
+        });
     },
-  }
+  },
 };
 </script>
 <style scoped>
-  .inputDiv{
-    height: 1.25rem;
-    width: 100%;
-    /* background-color: deepskyblue; */
-    position: fixed;
-    bottom: 1rem;
-    display: flex;
-  }
-  input{
-    margin: 0.1rem;
-    flex: 8;
-    border: none;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-  }
-  button{
-    margin: 0.1rem;
-    flex: 2;
-  }
-  .right{
-    float: right;
-    overflow: hidden;
-  }
-  .rightJpg,.leftJpg{
-    height: 1.1rem;
-    width: 1.1rem;
-    border-radius: 0.55rem;
-  }
-  .left{
-    float: left;
-    overflow: hidden;
-  }
+.inputDiv {
+  height: 1.25rem;
+  width: 100%;
+  /* background-color: deepskyblue; */
+  position: fixed;
+  bottom: 1rem;
+  display: flex;
+  z-index: 10;
+}
+input {
+  margin: 0.1rem;
+  flex: 8;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+button {
+  margin: 0.1rem;
+  flex: 2;
+}
+.white{
+  width: 100%;
+  height: 1.2rem;
+  background-color: white;
+  position: fixed;
+  bottom: 1rem;
+}
+.Content{
+  margin-bottom: 2rem;
+  /* position: absolute;
+  bottom: 2rem;
+  top: 1rem;
+  width: 100%;
+  overflow: hidden;
+  clear: both; */
+}
+/* ul{
+  position: relative;
+  bottom: 2rem;
+  top: 1rem;
+  } */
+.conversition {
+  margin: 0.15rem;
+}
+.right {
+  float: right;
+  overflow: hidden;
+}
+.rightJpg,
+.leftJpg {
+  height: 1.1rem;
+  width: 1.1rem;
+  border-radius: 0.55rem;
+}
+.left {
+  float: left;
+  overflow: hidden;
+}
+.rightSquare,
+.leftSquare,
+img {
+  display: inline-block;
+}
+.rightSquare,
+.leftSquare {
+  /* height: 1rem; */
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem;
+  font-size: 0.35rem;
+  margin: 0.3rem;
+  /* line-height: 1rem; */
+  border-radius: 0.25rem;
+}
 </style>
