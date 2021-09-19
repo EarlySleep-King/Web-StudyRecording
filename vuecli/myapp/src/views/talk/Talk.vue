@@ -44,6 +44,16 @@ export default {
     };
   },
   methods: {
+    scroll(){
+      let htmlDom = document.documentElement;
+      let hHeight = htmlDom.clientHeight; //视口高度
+      // let scrollTop = htmlDom.scrollTop; //滚动了多少距离
+      let scrollHeight = htmlDom.scrollHeight; //可滚动区域的高度
+      if(scrollHeight>hHeight){
+        console.log(123);
+        htmlDom.scrollTop = scrollHeight - hHeight;
+      }
+    },
     sendText() {
       // console.log(this.inputText);
       let Url =
@@ -59,6 +69,7 @@ export default {
           this.talkList.push(arr);
           console.log(this.talkList);
           this.inputText = "";
+          this.scroll();
         })
         .catch(() => {
           console.log("error");
