@@ -1,16 +1,16 @@
 import request from '@/utils/request'
-
+//post传参用data(对象)
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/login',
     method: 'post',
     data
   })
 }
-
+//get传参用params(对象)
 export function getInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/info',
     method: 'get',
     params: { token }
   })
