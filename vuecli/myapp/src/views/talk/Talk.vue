@@ -13,21 +13,21 @@
     <div class="Content">
       <ul>
         <li v-for="(item, index) in talkList" v-bind:key="index">
-          <div class="conversition clearfix">
-            <div class="right">
+          <div class="rconversition">
+            <!-- <div class="right"> -->
               <div class="rightSquare">
                 {{ item.question }}
               </div>
               <img src="@/assets/me.jpg" class="rightJpg" />
-            </div>
+            <!-- </div> -->
           </div>
-          <div class="conversition clearfix">
-            <div class="left">
+          <div class="lconversition">
+            <!-- <div class="left"> -->
               <img src="@/assets/you.jpg" class="leftJpg" />
               <div class="leftSquare">
                 {{ item.answer }}
               </div>
-            </div>
+            <!-- </div> -->
           </div>
         </li>
       </ul>
@@ -108,20 +108,16 @@ button {
 }
 .Content{
   margin-bottom: 2rem;
-  /* position: absolute;
-  bottom: 2rem;
-  top: 1rem;
-  width: 100%;
-  overflow: hidden;
-  clear: both; */
 }
-/* ul{
-  position: relative;
-  bottom: 2rem;
-  top: 1rem;
-  } */
-.conversition {
+.rconversition,.lconversition {
+  display: flex;
   margin: 0.15rem;
+}
+.rconversition{
+  justify-content: flex-end;
+}
+.lconversition{
+  justify-content: flex-start;
 }
 .right {
   float: right;

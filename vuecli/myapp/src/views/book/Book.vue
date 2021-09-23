@@ -13,13 +13,15 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <!-- tab切换 -->
     <el-tabs v-model="activeName" @tab-click="handleClick" class="tabs" v-bind:stretch='true'>
       <!-- 点击哪个按钮，activeName会切换成对应的name -->
       <el-tab-pane label="虚构类" name="fiction"></el-tab-pane>
       <el-tab-pane label="非虚构类" name="nonfiction"></el-tab-pane>
     </el-tabs>
+    <!-- 书籍清单 -->
     <div class="list">
-      <el-row :gutter="24" v-for="item in lbtList" :key="item.id">
+      <el-row :gutter="24" v-for="item in lbtList" :key="item.id" class="bookList">
         <el-col :span="8">
           <img
             :src="'https://images.weserv.nl/?url=' + item.cover.url"
@@ -111,6 +113,9 @@ export default {
 .list {
   margin: 0.15rem;
 }
+/* .bookList{
+  border-bottom: 1px solid rgba(111, 111, 111, 0.4);
+} */
 .bookTitle {
   font-size: 0.5rem;
 }
