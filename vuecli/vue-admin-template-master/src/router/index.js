@@ -187,13 +187,32 @@ export const constantRoutes = [
         path: 'list',
         name: 'ListPage',
         component: () => import('@/views/level/list'),
-        meta: { title: '等级', icon: 'form' }
+        meta: { title: '等级列表', icon: 'form' }
       },
       {
-        path: 'test2',
+        path: 'add',
         name: 'AddPage',
         component: () => import('@/views/level/add'),
-        meta: { title: '添加', icon: 'form' }
+        meta: { title: '添加等级', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/address',
+    component: Layout,
+    meta: { title: '地址管理', icon: 'el-icon-office-building' },
+    children: [
+      {
+        path: 'list',
+        name: 'ListPage',
+        component: () => import('@/views/address/list'),
+        meta: { title: '地址列表', icon: 'form' }
+      },
+      {
+        path: 'add',
+        name: 'AddPage',
+        component: () => import('@/views/address/add'),
+        meta: { title: '添加地址', icon: 'form' }
       }
     ]
   },

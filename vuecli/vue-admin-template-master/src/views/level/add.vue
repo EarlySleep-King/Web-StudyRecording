@@ -25,7 +25,7 @@ export default {
       console.log(this.data);
       addList(this.data).then((res) => {
         console.log(res);
-        if ((res.data.code = 101)) {
+        if ((res.status = 200)) {
           this.open2();
           this.$router.push('list');
         } else {
