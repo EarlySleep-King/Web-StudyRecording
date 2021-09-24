@@ -184,15 +184,15 @@ export const constantRoutes = [
     meta: { title: '等级管理', icon: 'form' },
     children: [
       {
-        path: 'list',
+        path: 'levellist',
         name: 'ListPage',
-        component: () => import('@/views/level/list'),
+        component: () => import('@/views/level/levellist'),
         meta: { title: '等级列表', icon: 'form' }
       },
       {
-        path: 'add',
+        path: 'addlevel',
         name: 'AddPage',
-        component: () => import('@/views/level/add'),
+        component: () => import('@/views/level/addlevel'),
         meta: { title: '添加等级', icon: 'form' }
       }
     ]
@@ -203,16 +203,35 @@ export const constantRoutes = [
     meta: { title: '地址管理', icon: 'el-icon-office-building' },
     children: [
       {
-        path: 'list',
+        path: 'addresslist',
         name: 'ListPage',
-        component: () => import('@/views/address/list'),
+        component: () => import('@/views/address/addresslist'),
         meta: { title: '地址列表', icon: 'form' }
       },
       {
-        path: 'add',
+        path: 'addaddress',
         name: 'AddPage',
-        component: () => import('@/views/address/add'),
+        component: () => import('@/views/address/addaddress'),
         meta: { title: '添加地址', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/message',
+    component: Layout,
+    meta: { title: '信息管理', icon: 'el-icon-user-solid' },
+    children: [
+      {
+        path: 'messagelist',
+        name: 'ListPage',
+        component: () => import('@/views/message/messagelist'),
+        meta: { title: '信息列表', icon: 'form' }
+      },
+      {
+        path: 'addmessage',
+        name: 'AddPage',
+        component: () => import('@/views/message/addmessage'),
+        meta: { title: '添加信息', icon: 'form' }
       }
     ]
   },

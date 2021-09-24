@@ -27,7 +27,7 @@ export default {
         console.log(res);
         if ((res.status = 200)) {
           this.open2();
-          this.$router.push('list');
+          this.$router.push('levellist');
         } else {
             this.open4();
         }

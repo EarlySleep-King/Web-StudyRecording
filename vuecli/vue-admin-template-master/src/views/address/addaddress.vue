@@ -55,7 +55,7 @@ export default {
             console.log(res);
             if ((res.status = 200)) {
               this.open2();
-              this.$router.push("/address/list");
+              this.$router.push("/address/addresslist");
             } else {
               this.open4();
             }
