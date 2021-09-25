@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-image: url('../css3/img/img01.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+        li{
+            width: 140px;
+            height: 140px;
+            border: 5px solid white;
+            /* padding: 10px; */
+            background-image: url('../css3/img/21021631455201_.pic.jpg');
+            background-size: cover;
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+        <li class="main"></li>
+    </ul>
+</body>
+<script>
+    let oli = document.getElementsByTagName('li');
+    let winWide = document.documentElement.clientWidth;
+    let wide = (winWide - (150 * 6)) / 7;
+    let winHeigh = document.documentElement.clientHeight;
+    let heigh = (winHeigh - (150 * 4)) /5;
+    let m=0;
+    for(let i=0;i<4;i++){
+        for(let k=0;k<6;k++){
+            console.log(wide);
+            console.log(heigh);
+            oli[m].style.top = ((i+1)*heigh + i*150+'px');
+            oli[m].style.left = ((k+1)*wide + k*150+'px');
+            let p = Math.random();
+            if(p>0.5){
+                var r1 = Math.random()*20;
+            }
+            else{
+                var r1 = Math.random()*(-20);
+            }
+            oli[m].style.transform = 'rotate('+ r1 +'deg)';
+            oli[m].style.transitionDelay = (24-m)*80 +'ms';
+            m++
+        }
+    }
+</script>
+</html>
