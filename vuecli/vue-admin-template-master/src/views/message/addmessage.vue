@@ -37,19 +37,36 @@
         <el-input v-model="messageForm.tel"></el-input>
       </el-form-item>
       <el-form-item>
-          <!-- 图片上传 -->
-        <!-- <el-upload
+        <!-- 图片上传 -->
+        <el-upload
           class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="http://47.92.82.13:4000/getMessageA"
           :limit="1"
           :on-exceed="handleExceed"
+          :on-success="upsuccess1"
           :file-list="fileList1"
+          name="sfile"
         >
           头像上传<el-button size="small" type="primary">点击上传</el-button>
           <div slot="tip" class="el-upload__tip">
             只能上传jpg/png文件，且不超过500kb
           </div>
-        </el-upload> -->
+        </el-upload>
+
+        <el-upload
+          class="upload-demo"
+          action="http://47.92.82.13:4000/getMessageB"
+          :limit="1"
+          :on-exceed="handleExceed"
+          :on-success="upsuccess2"
+          :file-list="fileList2"
+          name="sweixin"
+        >
+          微信二维码上传<el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">
+            只能上传jpg/png文件，且不超过500kb
+          </div>
+        </el-upload>
 
         <el-button type="primary" @click="submitForm('messageForm')"
           >立即创建</el-button
@@ -73,10 +90,11 @@ export default {
         addressid: "",
         levelid: "",
         tel: "",
-        tcoin:"",
-        weixin:"",
+        tcoin: "",
+        weixin: "",
       },
-      fileList1: [{}],
+      fileList1: [],
+      fileList2: [],
       rules: {
         uname: [{ required: true, message: "请输入姓名", trigger: "blur" }],
         addressid: [
@@ -107,15 +125,23 @@ export default {
         } 个文件`
       );
     },
-
+    // 图片1上传成功时执行
+    upsuccess1(response1, file, fileList1) {
+      console.log(response1, file, fileList1);
+      this.messageForm.weixin = response1.headerurl;
+    },
+    upsuccess2(response2, file, fileList2) {
+      console.log(response2, file, fileList2);
+      this.messageForm.tcoin = response2.headerurl;
+    },
     submitForm(formName) {
-    //   console.log(formName);
-    console.log(this.messageForm);
-      console.log(this.fileList1);
+      //   console.log(formName);
+      console.log(this.messageForm);
+      console.log(this.fileList);
       this.$refs[formName].validate((valid) => {
         if (valid) {
-            this.messageForm.addressid = this.messageForm.addressid.toString();
-            this.messageForm.levelid = this.messageForm.levelid.toString();
+          this.messageForm.addressid = this.messageForm.addressid.toString();
+          this.messageForm.levelid = this.messageForm.levelid.toString();
           addMessage(this.messageForm).then((res) => {
             console.log(res);
             if ((res.status = 200)) {
@@ -132,7 +158,9 @@ export default {
         }
       });
     },
+    // 重制
     resetForm(formName) {
+      console.log(formName);
       this.$refs[formName].resetFields();
     },
     open2() {
