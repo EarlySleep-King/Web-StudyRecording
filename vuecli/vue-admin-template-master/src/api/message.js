@@ -20,3 +20,26 @@ export function deleteMessage(params){
         params
     })
 }
+export function searchMessage(data){
+    return request({
+        url:'/searchaddressid',
+        method:'post',
+        data
+    })
+}
+export function showupdataMessage(params){
+    return request({
+        url:'/showOneMessage',
+        method:'get',
+        params
+    })
+}
+export function updataMessage(data){
+    return request({
+        url:'/updateMessage',
+        method:'post',
+        data
+    })
+}
+
+

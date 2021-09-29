@@ -1,6 +1,20 @@
 <template>
   <div v-loading.fullscreen="loading" element-loading-text="加载中……">
     <div class="app-container">
+      <el-form>
+        <el-form-item label="搜索地址" prop="addressid">
+          <el-select v-model="addressid.searchid" placeholder="请选择地址">
+            <el-option
+              v-for="item in addressData"
+              :key="item.addressid"
+              :label="item.addressname"
+              :value="item.addressid"
+            ></el-option>
+          </el-select>
+          <el-button type="primary" @click="searchAddress()" class="but1">搜索</el-button>
+          <el-button plain @click="reset()">重制</el-button>
+        </el-form-item>
+      </el-form>
       <template>
         <el-table :data="tableData" style="width: 100%">
           <el-table-column type="index" label="序号"> </el-table-column>
@@ -10,6 +24,13 @@
           <el-table-column prop="jrtel" label="手机号"> </el-table-column>
           <el-table-column fixed="right" label="操作">
             <template slot-scope="scope">
+                            <el-button
+                @click.native.prevent="reWrite(scope.$index, tableData)"
+                type="text"
+                size="small"
+              >
+                <i class="el-icon-edit"></i>修改
+              </el-button>
               <el-button
                 @click.native.prevent="deleteRow(scope.$index, tableData)"
                 type="text"
@@ -25,17 +46,41 @@
   </div>
 </template>
 <script>
+import { addressList } from "@/api/address";
 import { showMessage } from "@/api/message";
 import { deleteMessage } from "@/api/message";
+import { searchMessage } from "@/api/message";
 export default {
   data() {
     return {
+      addressid: { searchid: "" },
+      addressData: [],
       loading: true,
       tableData: [],
       deleteid: { id: "" },
     };
   },
   methods: {
+    //获取下拉列表中地址数据
+    showData() {
+      addressList().then((res) => {
+        console.log(res);
+        this.addressData = res.data.data;
+      });
+    },
+    //搜索功能
+    searchAddress() {
+      console.log(this.addressid);
+      searchMessage(this.addressid).then((res) => {
+        console.log(res);
+        this.tableData = res.data.data;
+      });
+    },
+    //重制搜索
+    reset() {
+      this.showList();
+      this.addressid.searchid = "";
+    },
     showList() {
       showMessage().then((res) => {
         console.log(res);
@@ -43,6 +88,12 @@ export default {
         this.loading = false;
       });
     },
+    //修改信息
+    reWrite(index,data){
+      let a = index;
+      this.$router.push({path:"/message/addmessage",query:{id:data[a].jrid.toString()}})
+    },
+    //删除信息
     deleteRow(index, data) {
       console.log(index, data);
       // this.deleteid.id = this.tableData[index].jrid.toString();
@@ -93,8 +144,12 @@ export default {
   },
   created() {
     this.showList();
+    this.showData();
   },
 };
 </script>
 <style scoped>
+.but1{
+  margin-left: 10px;
+}
 </style>
