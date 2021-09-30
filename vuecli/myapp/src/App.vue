@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!-- <router-link to="/">Movie</router-link> -->
       <Navagation />
     </div>
     <router-view />
