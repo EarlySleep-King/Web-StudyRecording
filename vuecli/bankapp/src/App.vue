@@ -8,6 +8,7 @@
 </template>
 
 <script>
+// 引入公共组件
 import Navagation from "../src/components/Navagation.vue";
 export default {
   components: {
@@ -28,5 +29,6 @@ export default {
 }
 body {
   padding: 1rem 0;
+  background-color: #f5f6f7;
 }
 </style>

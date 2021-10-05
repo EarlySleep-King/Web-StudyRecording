@@ -87,12 +87,15 @@ header {
   font-size: 30px;
   text-align: center;
   line-height: 1rem;
+  background-color: #fff;
+  color: #666;
 }
 nav {
-  height: 1rem;
+  height: 1.5rem;
   position: fixed;
   bottom: 0px;
   width: 100%;
+  background-color: #fff;
 }
 nav ul {
   height: 1.5rem;
