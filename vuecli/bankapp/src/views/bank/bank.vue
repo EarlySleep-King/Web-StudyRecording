@@ -8,7 +8,7 @@
         <div class="right">
           <h3>{{ item.addressname }}</h3>
           <div class="moredata">
-            <User />
+            <User :id="item.addressid" />
           </div>
         </div>
       </li>
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-        bankData:[],
+      bankData: [],
     };
   },
   methods: {
@@ -48,23 +48,24 @@ li {
   border-radius: 10px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-around;
 }
 .left {
   flex: 1;
+  margin-top: 20px;
 }
-.right{
-    margin-top: 20px;
-    flex: 1;
-    margin-left: 10px;
+.right {
+  margin-top: 20px;
+  flex: 1;
+  margin-left: 10px;
 }
 img {
   width: 100%;
 }
 h3 {
   /* flex-grow: 1; */
-  
+
   font-size: 20px;
 }
 </style>

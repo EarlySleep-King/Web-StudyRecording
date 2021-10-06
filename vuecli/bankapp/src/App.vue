@@ -28,7 +28,7 @@ export default {
   clear: both;
 }
 body {
-  padding: 1rem 0;
+  padding: 1.1rem 0;
   background-color: #f5f6f7;
 }
 </style>
