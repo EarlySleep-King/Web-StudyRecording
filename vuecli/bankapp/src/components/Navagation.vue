@@ -91,21 +91,21 @@ header {
   color: #666;
 }
 nav {
-  height: 1.5rem;
+  height: 1.2rem;
   position: fixed;
   bottom: 0px;
   width: 100%;
   background-color: #fff;
 }
 nav ul {
-  height: 1.5rem;
+  height: 1.2rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 ul li {
-  line-height: 1.5rem;
-  height: 1.5rem;
+  line-height: 1.2rem;
+  height: 1.2rem;
   font-size: 25px;
 }
 </style>

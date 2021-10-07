@@ -7,3 +7,9 @@ export function searchMessage(data){
         data
     })
 }
+export function showMessage(){
+    return request({
+        url:'/showMessage',
+        method:'get'
+    })
+}

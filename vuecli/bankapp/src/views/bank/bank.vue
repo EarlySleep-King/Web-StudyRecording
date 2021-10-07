@@ -48,7 +48,6 @@ li {
   border-radius: 10px;
   overflow: hidden;
   display: flex;
-  /* align-items: center; */
   justify-content: space-around;
 }
 .left {
