@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = "bbb",
+            obj = {
+                a: "aaa",
+                foo: function () {
+                    console.log(this.a);//aaa
+                    function foo2() {
+                        console.log(this);
+                        console.log(this.a);//bbb
+                    }
+                    console.log(this.foo.foo2);
+                    this.foo.foo2();
+                }
+            }
+        obj.foo();
+    </script>
+</body>
+
+</html>

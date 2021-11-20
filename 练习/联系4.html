@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo() {
+            function fn() {
+                console.log(1);
+            }
+            return this;
+        }
+        foo.prototype.fn = function(){
+            console.log(2);
+        }
+        var fn = function(){
+            console.log(3);
+        };
+        function fn(){
+            console.log(4);
+        };
+        console.log(foo);
+        foo.fn();
+        // console.log(foo.fn);
+        fn();
+        foo().fn();
+        fn();
+
+    </script>
+</body>
+
+</html>

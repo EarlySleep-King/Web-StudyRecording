@@ -11,10 +11,25 @@
         im 123
     </h1>
     <script>
-        let obox1 = document.getElementsByClassName("box1");
-        obox1[0].addEventListener("click",function(){
-            console.log(123);
-        })
+        //输入
+        const str=`
+         1 21   3
+
+           4 5  6
+        7  8 9
+        `;
+        //输出
+        arr = [[1,21,3],[4,5,6],[7,8,9]];
+
+
+        var arr1 = str.split('\n');
+        console.log(arr1);
+        var arr2 = arr1.splice(' ');
+        console.log(arr2);
+
+        for(var i=0;i<arr2.length;i++){
+
+        }
     </script>
 </body>
 </html>
